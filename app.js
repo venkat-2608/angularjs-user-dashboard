@@ -30,3 +30,21 @@ app.controller("registerController", function ($scope) {
     };
 
 });
+
+
+/* 🔥 CUSTOM DIRECTIVE (ADVANCED PART) */
+app.directive("userCard", function () {
+    return {
+        restrict: "E",
+        scope: {
+            user: "="
+        },
+        template: `
+            <div class="submitted">
+                <h3>Last Submitted User</h3>
+                <p><b>Name:</b> {{user.name}}</p>
+                <p><b>Email:</b> {{user.email}}</p>
+            </div>
+        `
+    };
+});

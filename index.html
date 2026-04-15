@@ -4,10 +4,7 @@
 <head>
     <title>AngularJS User Dashboard</title>
 
-    <!-- AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,12 +57,8 @@
             <p><b>Email:</b> {{user.email}}</p>
         </div>
 
-        <!-- Submitted User -->
-        <div class="submitted" ng-if="submittedUser">
-            <h3>Last Submitted User</h3>
-            <p><b>Name:</b> {{submittedUser.name}}</p>
-            <p><b>Email:</b> {{submittedUser.email}}</p>
-        </div>
+        <!-- 🔥 USING DIRECTIVE -->
+        <user-card ng-if="submittedUser" user="submittedUser"></user-card>
 
         <!-- Message -->
         <p class="success" ng-if="message">{{message}}</p>
