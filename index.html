@@ -2,49 +2,42 @@
 <html ng-app="registerApp">
 
 <head>
-    <title>AngularJS Registration Form</title>
+    <title>AngularJS User Dashboard</title>
 
-    <!-- AngularJS Library -->
+    <!-- AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body ng-controller="registerController">
 
 <div class="container">
 
-<h2>User Registration</h2>
+    <h2>User Dashboard</h2>
 
-<form name="regForm" ng-submit="submitForm()" novalidate>
+    <form name="regForm" ng-submit="submitForm()" novalidate>
 
-<label>Full Name</label>
-<input type="text" ng-model="user.name" required>
+        <label>Name</label>
+        <input type="text" ng-model="user.name" placeholder="Enter your name" required>
 
-<label>Email</label>
-<input type="email" ng-model="user.email" required>
+        <label>Email</label>
+        <input type="email" ng-model="user.email" placeholder="Enter your email" required>
 
-<label>Password</label>
-<input type="password" ng-model="user.password" required>
+        <button type="submit">Submit</button>
 
-<label>Age</label>
-<input type="number" ng-model="user.age">
+    </form>
 
-<label>Gender</label>
-<select ng-model="user.gender">
-<option value="">Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-<option>Other</option>
-</select>
+    <!-- Live Preview -->
+    <div ng-if="user.name || user.email">
+        <h3>Live Preview</h3>
+        <p><b>Name:</b> {{user.name}}</p>
+        <p><b>Email:</b> {{user.email}}</p>
+    </div>
 
-<button type="submit">Register</button>
-
-</form>
-
-<p class="success">{{message}}</p>
+    <!-- Message -->
+    <p class="success" ng-if="message">{{message}}</p>
 
 </div>
 
