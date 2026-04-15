@@ -13,35 +13,55 @@
 
 <body ng-controller="registerController">
 
-<div class="container">
+    <div class="container">
 
-    <h2>User Dashboard</h2>
+        <h2>User Dashboard</h2>
 
-    <form name="regForm" ng-submit="submitForm()" novalidate>
+        <form name="regForm" ng-submit="submitForm(regForm)" novalidate>
 
-        <label>Name</label>
-        <input type="text" ng-model="user.name" placeholder="Enter your name" required>
+            <label>Name</label>
+            <input type="text"
+                   name="name"
+                   ng-model="user.name"
+                   placeholder="Enter your name"
+                   required>
 
-        <label>Email</label>
-        <input type="email" ng-model="user.email" placeholder="Enter your email" required>
+            <span style="color:red"
+                  ng-show="regForm.name.$touched && regForm.name.$invalid">
+                Name is required
+            </span>
 
-        <button type="submit">Submit</button>
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   ng-model="user.email"
+                   placeholder="Enter your email"
+                   required>
 
-    </form>
+            <span style="color:red"
+                  ng-show="regForm.email.$touched && regForm.email.$invalid">
+                Valid email is required
+            </span>
 
-    <!-- Live Preview -->
-    <div ng-if="user.name || user.email">
-        <h3>Live Preview</h3>
-        <p><b>Name:</b> {{user.name}}</p>
-        <p><b>Email:</b> {{user.email}}</p>
+            <button type="submit" ng-disabled="regForm.$invalid">
+                Submit
+            </button>
+
+        </form>
+
+        <!-- Live Preview -->
+        <div ng-if="user.name || user.email">
+            <h3>Live Preview</h3>
+            <p><b>Name:</b> {{user.name}}</p>
+            <p><b>Email:</b> {{user.email}}</p>
+        </div>
+
+        <!-- Message -->
+        <p class="success" ng-if="message">{{message}}</p>
+
     </div>
 
-    <!-- Message -->
-    <p class="success" ng-if="message">{{message}}</p>
-
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
