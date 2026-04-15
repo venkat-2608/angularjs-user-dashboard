@@ -47,13 +47,24 @@
                 Submit
             </button>
 
+            <button type="button" ng-click="resetForm(regForm)">
+                Reset
+            </button>
+
         </form>
 
         <!-- Live Preview -->
-        <div ng-if="user.name || user.email">
+        <div class="preview" ng-if="user.name || user.email">
             <h3>Live Preview</h3>
             <p><b>Name:</b> {{user.name}}</p>
             <p><b>Email:</b> {{user.email}}</p>
+        </div>
+
+        <!-- Submitted User -->
+        <div class="submitted" ng-if="submittedUser">
+            <h3>Last Submitted User</h3>
+            <p><b>Name:</b> {{submittedUser.name}}</p>
+            <p><b>Email:</b> {{submittedUser.email}}</p>
         </div>
 
         <!-- Message -->
