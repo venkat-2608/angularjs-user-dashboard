@@ -10,9 +10,8 @@ app.controller("registerController", function ($scope) {
 
         if (form.$valid) {
             $scope.submittedUser = angular.copy($scope.user);
-            $scope.message = "Registration Successful!";
+            $scope.message = "User successfully registered and saved!";
 
-            // Reset input fields
             $scope.user = {};
             form.$setPristine();
             form.$setUntouched();
@@ -32,7 +31,6 @@ app.controller("registerController", function ($scope) {
 });
 
 
-/* 🔥 CUSTOM DIRECTIVE (ADVANCED PART) */
 app.directive("userCard", function () {
     return {
         restrict: "E",
